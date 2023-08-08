@@ -1,0 +1,268 @@
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url("../assets/fonts/Gotham-Bold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url("../assets/fonts/Gotham-Book.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url("../assets/fonts/Gotham-Light.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Humanitarian-Icons-v02';
+  src: url("../assets/fonts/Humanitarian-Icons-v02.eot?d5h7ar");
+  src: url("../assets/fonts/Humanitarian-Icons-v02.eot?d5h7ar#iefix") format("embedded-opentype"), url("../assets/fonts/Humanitarian-Icons-v02.ttf?d5h7ar") format("truetype"), url("../assets/fonts/Humanitarian-Icons-v02.woff?d5h7ar") format("woff"), url("../assets/fonts/Humanitarian-Icons-v02.svg?d5h7ar#Humanitarian-Icons-v02") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; }
+
+[class^="humanitarianicons-"], [class*=" humanitarianicons-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Humanitarian-Icons-v02' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 30px;
+  grid-template-rows: auto;
+  margin: 0 auto;
+  max-width: 900px; }
+  .grid-container.center--vertical {
+    align-items: center; }
+
+.col-3 {
+  grid-column: span 3; }
+
+.col-4 {
+  grid-column: span 4; }
+
+.col-5 {
+  grid-column: span 5; }
+
+.col-6 {
+  grid-column: span 6; }
+
+.col-7 {
+  grid-column: span 7; }
+
+.col-8 {
+  grid-column: 3 / span 8; }
+
+.col-12 {
+  grid-column: span 12; }
+
+@media only screen and (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0; }
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-12 {
+    grid-column: 1 / -1; } }
+
+* {
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0; }
+
+main {
+  flex: 1; }
+
+h2 {
+  color: #000;
+  font-family: 'Gotham-Bold';
+  font-size: 14px;
+  margin: 0 0 2px;
+  text-transform: uppercase; }
+
+a {
+  color: #F2645A;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.container {
+  height: 677px;
+  position: relative; }
+
+#map {
+  height: 100%; }
+
+.mapboxgl-popup {
+  z-index: 3; }
+
+.mapboxgl-popup-content {
+  padding: 10px; }
+
+.hidden {
+  display: none; }
+
+/** marker vars **/
+.marker {
+  background-size: 100%;
+  height: 54px;
+  margin-top: -27px;
+  width: 38px; }
+  .marker:before {
+    font-family: 'Humanitarian-Icons-v02';
+    font-size: 17px;
+    position: absolute;
+    top: 9px;
+    left: 10px; }
+  .marker.development:before {
+    color: #808080; }
+  .marker.endorsed:before {
+    color: #1BB580; }
+  .marker.revision:before {
+    color: #CB964F; }
+
+.label {
+  color: #808080;
+  font-family: 'Gotham-Bold';
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  width: auto; }
+  .label .type {
+    font-family: 'Gotham-Book';
+    text-transform: capitalize; }
+  .label.development {
+    color: #808080; }
+  .label.endorsed {
+    color: #1BB580; }
+  .label.revision {
+    color: #CB964F; }
+
+#legend {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #888;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  left: 20px;
+  max-width: 290px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  z-index: 2; }
+  #legend.collapsed {
+    height: 34px; }
+    #legend.collapsed .expandBtn:before {
+      content: "\e94b"; }
+  #legend .expandBtn {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+    #legend .expandBtn:before {
+      content: "\ea2a";
+      font-family: 'Humanitarian-Icons-v02'; }
+  #legend .header {
+    font-family: 'Gotham-Bold';
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase; }
+  #legend ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    #legend ul li {
+      display: flex;
+      margin-bottom: 15px; }
+      #legend ul li:last-child {
+        margin-bottom: 0; }
+  #legend .icon {
+    height: 28px;
+    padding-right: 8px;
+    vertical-align: middle; }
+
+#panel {
+  background-color: #FFF;
+  bottom: 20px;
+  height: 230px;
+  position: absolute;
+  right: 20px;
+  width: 350px;
+  z-index: 2; }
+  #panel .panel-inner {
+    height: 215px;
+    margin: 15px 15px 0;
+    overflow-y: scroll;
+    padding-bottom: 50px; }
+  #panel .panel-overlay {
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    height: 230px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  #panel table {
+    border-spacing: 0;
+    border-top: 1px solid #DDD;
+    margin: 0 0 20px;
+    width: 100%; }
+    #panel table tr {
+      vertical-align: top; }
+      #panel table tr td {
+        border-bottom: 1px solid #DDD;
+        padding: 2px 0;
+        width: 55%; }
+        #panel table tr td:first-child {
+          font-weight: 600;
+          width: 45%; }
+        #panel table tr td .shock {
+          text-transform: capitalize; }
+
+@media only screen and (max-width: 700px) {
+  .container {
+    height: 577px; }
+  #panel {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; }
+  #legend {
+    left: 20px;
+    top: 20px;
+    width: 80%; }
+    #legend .expandBtn {
+      display: block; } }
