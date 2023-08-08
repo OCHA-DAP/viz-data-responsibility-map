@@ -55,7 +55,7 @@ $( document ).ready(function() {
 
         const el = document.createElement('div');
         el.className = 'marker';
-        el.style.backgroundImage = `url(/assets/markers/marker_${statusClass}.svg)`;
+        el.style.backgroundImage = `url(https://ocha-dap.github.io/viz-data-responsibility-map/assets/markers/marker_${statusClass}.svg)`;
         el.classList.add(statusClass);
         el.classList.add(typeClass);
 
