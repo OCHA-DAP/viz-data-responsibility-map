@@ -1,6 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 $( document ).ready(function() {
-  const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTq144oqENc3uf7APjz8RO612ybsxlntJs0w-MuxspP1N3Yx-S60rNyWhVCYkIaGv9Oul37p2DayiPh%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
+  const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTB0YT-fl6AaNzIHgPDZDcBEwqowRX1YAgnpGLpcsW1ciPZ6fd1Qxxcdhgla9ZxwBM2dwQq6u751xsN%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
   const isMobile = $(window).width()<700? true : false;
   let data = [];
 
