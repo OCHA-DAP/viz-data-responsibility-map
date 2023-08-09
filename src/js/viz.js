@@ -17,9 +17,9 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 0 : 1.4;
+    const zoomLevel = (isMobile) ? 1.6 : 4.6;
     const minZoomLevel = (isMobile) ? 0 : 0;
-    const centerPos = (isMobile) ? [85, 0] : [85, 0];
+    const centerPos = (isMobile) ? [20, -5] : [20, -5];
 
     //init mapbox
     const map = new mapboxgl.Map({
@@ -82,7 +82,7 @@ $( document ).ready(function() {
       }
 
       if (isMobile) {
-        $('#legend').addClass('collapsed');      
+        // $('#legend').addClass('collapsed');
 
         $('#legend').on('click', function() {
           $(this).toggleClass('collapsed');

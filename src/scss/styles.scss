@@ -69,10 +69,10 @@ $endorsed: #1BB580;
 $revision: #CB964F;
 
 .marker {
-  background-size: 100%;
-  height: 54px;
-	margin-top: -27px; //half the icon height
-	width: 38px;
+  	background-size: 100%;
+  	height: 36px;
+	margin-top: -18px; //half the icon height
+	width: 25.3px;
 	&:before {
 		//content: '\e963';
 		font-family: 'Humanitarian-Icons-v02';
@@ -127,28 +127,27 @@ $revision: #CB964F;
 	top: 20px;
 	z-index: 2;
 	&.collapsed {
-		height: 34px;
+		height: 45px;
 		.expandBtn {
-	  	&:before {
-	  		content: "\e94b";
-	  	}
+			&:before {
+				content: "\e94b";
+			}
 		}
 	}
 	.expandBtn {
 		display: none;
-  	position: absolute;
-  	right: 10px;
-  	top: 10px;
-  	&:before {
-  		content: "\ea2a";
-  		font-family: 'Humanitarian-Icons-v02';
-  	}
+		position: absolute;
+		right: 10px;
+		top: 14px;
+		&:before {
+			content: "\ea2a";
+			font-family: 'Humanitarian-Icons-v02';
+		}
 	}
 	.header {
-  	font-family: 'Gotham-Bold';
-  	font-size: 14px;
-  	margin-bottom: 10px;
-  	text-transform: uppercase;
+		font-family: 'Gotham-Bold';
+		font-size: 14px;
+		text-transform: uppercase;
 	}
 	ul {
 		list-style-type: none;
@@ -156,10 +155,11 @@ $revision: #CB964F;
 		padding: 0;
 		li {
 			display: flex;
-  		margin-bottom: 15px;
-  		&:last-child {
-  			margin-bottom: 0;
-  		}
+  			margin-bottom: 10px;
+			align-items: center;
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 	.icon {
@@ -172,16 +172,16 @@ $revision: #CB964F;
 #panel {
 	background-color: #FFF;
 	bottom: 20px;
-	height: 230px;
+	height: 195px;
 	position: absolute;
 	right: 20px;
 	width: 350px;
 	z-index: 2;
 	.panel-inner {
-		height: 215px;
+		height: 180px;
 		margin: 15px 15px 0;
 		overflow-y: scroll;
-		padding-bottom: 50px;
+		//padding-bottom: 50px;
 	}
 	.panel-overlay {
 		background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
@@ -223,9 +223,19 @@ $revision: #CB964F;
 		height: 577px;
 	}
 	#panel {
-    left: 50%;
-    transform: translateX(-50%);
+    	left: 50%;
+    	transform: translateX(-50%);
 		width: 90%;
+		table {
+			tr {
+				td {
+					width: 75%;
+					&:first-child {
+						width: 25%;
+					}
+				}
+			}
+		}
 	}
 	#legend {
 		left: 20px;
