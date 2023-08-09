@@ -64,8 +64,8 @@ a {
 }
 
 /** marker vars **/
-$development: #808080;
-$endorsed: #1BB580;
+$development: #A7C7E7;
+$endorsed: #00008B;
 $revision: #CB964F;
 
 .marker {
@@ -209,8 +209,10 @@ $revision: #CB964F;
 					font-weight: 600;
 					width: 45%;
 				}
-				.shock {
-					text-transform: capitalize;
+				&.isp-links {
+					a {
+						overflow-wrap: anywhere;
+					}
 				}
 			}
 		}

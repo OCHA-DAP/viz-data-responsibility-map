@@ -17,8 +17,9 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 1.6 : 4.6;
-    const minZoomLevel = (isMobile) ? 0 : 0;
+    const zoomLevel = (isMobile) ? 1.3 : 1.3;
+    const minZoomLevel = (isMobile) ? -1.3 : -1.3;
+    const maxZoomLevel = (isMobile) ? 4 : 4;
     const centerPos = (isMobile) ? [20, -5] : [20, -5];
 
     //init mapbox
@@ -27,7 +28,7 @@ $( document ).ready(function() {
       style: 'mapbox://styles/humdata/cl3lpk27k001k15msafr9714b',//ckaoa6kf53laz1ioek5zq97qh',
       center: centerPos,
       minZoom: minZoomLevel,
-      maxZoom: minZoomLevel+1,
+      maxZoom: maxZoomLevel,
       zoom: zoomLevel,
       attributionControl: false
     });
@@ -58,16 +59,18 @@ $( document ).ready(function() {
         el.classList.add(statusClass);
         el.classList.add(typeClass);
 
+
         el.addEventListener('mouseover', () => {
-          initPanel(marker);
-          //scroll to country in panel
-          let element = document.getElementById(marker["#country+name"]);
-          element.parentNode.scrollTop = element.offsetTop - 15;
+          el.style.cursor = 'pointer';
 
           //show map popup
           map.getCanvas().style.cursor = 'pointer';
           let popupText = `<div class="label ${statusClass}">${marker["#country+name"]}<div class="type">${marker["#data+month+year"]}</div></div>`;
           popup.setLngLat(coords).setHTML(popupText).addTo(map);
+        });
+
+        el.addEventListener('click', () => {
+          initPanel(marker);
         });
 
         el.addEventListener('mouseout', () => {
@@ -87,6 +90,13 @@ $( document ).ready(function() {
         $('#legend').on('click', function() {
           $(this).toggleClass('collapsed');
         });
+      }
+    });
+
+    map.on('click', function(e) {
+      // diff marker click
+      if(map.getCanvas().style.cursor !== 'pointer') {
+        $('#panel').addClass('hidden').find('.panel-inner').html('');
       }
     });
   }
@@ -111,7 +121,7 @@ $( document ).ready(function() {
       content += `<tr><td>Public comms: </td><td>${country['#meta+url']}</td></tr>`;
     }
     if(links) {
-      content += `<tr><td>Link(s) to ISP: </td><td>${links}</td></tr>`;
+      content += `<tr><td>Link(s) to ISP: </td><td class="isp-links">${links}</td></tr>`;
     }
 
     content += '</table>'
