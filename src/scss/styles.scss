@@ -122,12 +122,12 @@ $revision: #CB964F;
 	left: 20px;
 	max-width: 290px;
 	overflow: hidden;
-	padding: 10px;
+	padding: 10px 20px 10px 10px;
 	position: absolute;
 	top: 20px;
 	z-index: 2;
 	&.collapsed {
-		height: 45px;
+		height: 50px;
 		.expandBtn {
 			&:before {
 				content: "\e94b";
@@ -137,7 +137,7 @@ $revision: #CB964F;
 	.expandBtn {
 		display: none;
 		position: absolute;
-		right: 10px;
+		right: 8px;
 		top: 14px;
 		&:before {
 			content: "\ea2a";
