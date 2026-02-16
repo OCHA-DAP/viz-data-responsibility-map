@@ -106,7 +106,8 @@ $( document ).ready(function() {
   function initPanel(country) {
     let content = '';
     let actors = country['#actors+text'].replaceAll(', ', '<br>');
-    let links = country['#project+document'].replaceAll(' | ', '<br>');
+    let links = country['#project+document'].replaceAll(' | ', '<br>').replaceAll('<a ', '<a target="_blank" ');
+    let public_comms = country['#meta+url'].replaceAll('<a ', '<a target="_blank" ');
 
     content += `<h2 id="${country['#country+name']}">${country['#country+name']}</h2>`;
     content += '<table>';
@@ -118,8 +119,8 @@ $( document ).ready(function() {
     if(actors) {
       content += `<tr><td>Actors involved: </td><td>${actors}</td></tr>`;
     }
-    if(country['#meta+url']) {
-      content += `<tr><td>Public comms: </td><td>${country['#meta+url']}</td></tr>`;
+    if(public_comms) {
+      content += `<tr><td>Public comms: </td><td>${public_comms}</td></tr>`;
     }
     if(links) {
       content += `<tr><td>Link(s) to ISP: </td><td class="isp-links">${links}</td></tr>`;
