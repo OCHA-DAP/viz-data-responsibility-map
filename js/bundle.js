@@ -1,6 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 $( document ).ready(function() {
-  const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTB0YT-fl6AaNzIHgPDZDcBEwqowRX1YAgnpGLpcsW1ciPZ6fd1Qxxcdhgla9ZxwBM2dwQq6u751xsN%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
+  const DATA_URL = 'https://data.humdata.org/hxl/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vTB0YT-fl6AaNzIHgPDZDcBEwqowRX1YAgnpGLpcsW1ciPZ6fd1Qxxcdhgla9ZxwBM2dwQq6u751xsN%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
   const isMobile = $(window).width()<700? true : false;
   let data = [];
 
@@ -106,8 +106,7 @@ $( document ).ready(function() {
   function initPanel(country) {
     let content = '';
     let actors = country['#actors+text'].replaceAll(', ', '<br>');
-    let links = country['#project+document'].replaceAll(' | ', '<br>').replaceAll('<a ', '<a target="_blank" ');
-    let public_comms = country['#meta+url'].replaceAll('<a ', '<a target="_blank" ');
+    let links = country['#project+document'].replaceAll(' | ', '<br>');
 
     content += `<h2 id="${country['#country+name']}">${country['#country+name']}</h2>`;
     content += '<table>';
@@ -119,8 +118,8 @@ $( document ).ready(function() {
     if(actors) {
       content += `<tr><td>Actors involved: </td><td>${actors}</td></tr>`;
     }
-    if(public_comms) {
-      content += `<tr><td>Public comms: </td><td>${public_comms}</td></tr>`;
+    if(country['#meta+url']) {
+      content += `<tr><td>Public comms: </td><td>${country['#meta+url']}</td></tr>`;
     }
     if(links) {
       content += `<tr><td>Link(s) to ISP: </td><td class="isp-links">${links}</td></tr>`;
